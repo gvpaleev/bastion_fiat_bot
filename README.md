@@ -1,2 +1,10 @@
 # bastion_fiat_bot
-sss
+let contex
+
+user
+
+let
+registration // unix time
+myServices // [id,id]
+
+function
