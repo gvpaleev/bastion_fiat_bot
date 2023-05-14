@@ -1,0 +1,10 @@
+{
+    "servers":[
+        {
+            "host":"95.163.236.47",
+            "port":"22",
+            "username":"root",
+            "password":"7PmwAEh3+FNn"
+        }
+    ]
+  }

@@ -1,0 +1,20 @@
+{
+	"dateRegistration": 1684074410839,
+	"conf": [
+		{
+			"service": "proxy",
+			"id": 2174317217826589,
+			"ip": "95.163.236.47",
+			"login": "AgiwNGVVww",
+			"password": "OWOWSXBgzu",
+			"activeUntil": 1684333610839
+		},
+		{
+			"service": "vpn",
+			"id": "HyNcIogscKURwtUt",
+			"ip": "95.163.236.47",
+			"confPath": "",
+			"activeUntil": 1684333612166
+		}
+	]
+}
