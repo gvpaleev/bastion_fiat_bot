@@ -4,9 +4,9 @@ const Messages = require('../class/Messages')
 
 
 
-const welcomMenu = new Menu("welcomMenu")
+const contacts = new Menu("contacts")
 .text(
-    "Прочитал",
+    "Окей",
     (ctx)=>{
         // ctx.editMessageText("It is " + new Date().toLocaleString());
         // ctx.menu.close();
@@ -18,4 +18,4 @@ const welcomMenu = new Menu("welcomMenu")
         
     }
 )
-module.exports =  welcomMenu;
+module.exports =  contacts;

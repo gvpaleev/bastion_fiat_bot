@@ -1,14 +1,18 @@
 const { Bot, session } =require ("grammy");
 const { FileAdapter } =require("@grammyjs/storage-file");
+
 const glMenu = require('./menu/glMenu')
 const welcomMenu = require('./menu/welcom')
+const contacts = require('./menu/contacts')
+
 const ManagerServices = require('./class/ManagerServices')
+const Messages = require('./class/Messages')
 require('dotenv').config();
 
 
 const bot = new Bot(process.env.BOT_TOKEN)
 const managerServices = new ManagerServices();
-managerServices.addVpn(+ new Date() + 259200000);
+// managerServices.addVpn(+ new Date() + 259200000);
 //context
 bot.use(async (ctx,next)=>{
   ctx.managerServices = managerServices;
@@ -32,23 +36,23 @@ bot.use(
 )
 
 //menu
+
 bot.use(glMenu)
 bot.use(welcomMenu)
+bot.use(contacts)
+
 
 bot.command("start", async ctx =>{
 
     if (ctx.session.dateRegistration){
-      ctx.reply(`Welcom1`,{
-        reply_markup: welcomMenu,
+      ctx.reply(`<b>Hi!</b> <i>Welcome</i> to <a href="https://grammy.dev">grammY</a>.`,{
+        reply_markup: glMenu,
+        parse_mode: "HTML" 
       })
     }else{
-      ctx.session.dateRegistration=+new Date();
-      let proxy = await managerServices.addProxy(+ new Date() + 259200000);
-      let vpn = await managerServices.addVpn(+ new Date() + 259200000);
-      ctx.session.conf.push(proxy);
-      ctx.session.conf.push(vpn);
-      ctx.reply(`Welcom2`,{
+      ctx.reply(Messages.getWellcomMenu(),{
         reply_markup: welcomMenu,
+        parse_mode: "HTML" 
       })
     }
     

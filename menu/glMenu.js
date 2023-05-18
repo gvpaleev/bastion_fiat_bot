@@ -1,4 +1,7 @@
 const { Menu,MenuRange } =require("@grammyjs/menu");
+const Messages = require('../class/Messages')
+const contacts = require('./contacts')
+
 
 const glMenu = new Menu("root-menu")
 .text(
@@ -13,7 +16,15 @@ async ctx =>{
   }
 }
 ).row()
-.submenu("Купить новый", "newBuy");
+.submenu("Купить новый", "newBuy").row()
+.text('Контакты',
+(ctx)=>{
+  ctx.deleteMessage();
+  ctx.reply("Messages.getGlMenu()",{
+      reply_markup: contacts,
+      parse_mode: "HTML" 
+  })
+});
 
 const settings = new Menu("credits-menu")
 .text("Show Credits", (ctx) => ctx.reply("Powered by grammY"))
